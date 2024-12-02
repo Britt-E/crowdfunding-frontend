@@ -1,5 +1,6 @@
 import useProjects from "../hooks/use-projects";
 import ProjectCard from "../components/ProjectCard";
+import CreateProjectForm from "../components/CreateProjectForm";
 import "./HomePage.css";
 
 function HomePage() {
@@ -12,10 +13,13 @@ function HomePage() {
         return (<p>{error.message}</p>)
     } 
     return (
+        <div>
         <div id="project-list">
             {projects.map((projectData, key) => {
                 return <ProjectCard key={key} projectData={projectData} />;  
                 })}
+        </div>
+        <CreateProjectForm />
         </div>
     );
     }
