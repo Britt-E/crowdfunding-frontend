@@ -77,15 +77,6 @@ function CreateProjectForm() {
             />
         </div>
         <div>
-          <label htmlFor="is_open">Is_Open:</label>
-          <input
-            type="checkbox"
-            id="id_open"
-            onChange={handleChange}
-            />
-            project is open
-        </div>
-        <div>
           <label htmlFor="date_created">Date_Created:</label>
           <input
             type="datetime"
