@@ -1,6 +1,40 @@
+/* General styling for the homepage container */
 #project-list {
-    display: grid;
-    grid-template-columns: 30% 30% 30%;
-    column-gap: 10px;
-    row-gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly; /* Center the cards with even spacing */
+  margin: 2rem 0;
+  padding: 0 2rem;
+}
+
+/* Styling for individual project cards in the project list */
+#project-list .project-card {
+  margin: 1rem;
+  flex-basis: 22%; /* Card width for each project */
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect for project cards */
+#project-list .project-card:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Styling for loading and error messages */
+p {
+  color: #fff;
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+  #project-list {
+      flex-direction: column;
+      align-items: center;
   }
+
+  #project-list .project-card {
+      flex-basis: 90%; /* Stack the cards for small screens */
+  }
+}

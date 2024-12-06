@@ -32,7 +32,8 @@ function CreateProjectForm() {
                 projectData.is_open,
                 projectData.date_created   
             ).then((response) => {
-console.log(response)
+              const id = response.id
+              navigate(`project/${id}`) 
             });
         }
     };
@@ -69,7 +70,7 @@ console.log(response)
         <div>
           <label htmlFor="image">Image:</label>
           <input
-            type="text"
+            type="url"
             id="image"
             placeholder="image url"
             onChange={handleChange}
@@ -94,7 +95,7 @@ console.log(response)
             />
         </div>
         <button type="submit" onClick={handleSubmit}>
-            Login
+            Create
             </button>
       </form>
     );

@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import postPledge from "../api/post-project.js";
+import postPledge from "../api/post-pledge.js";
+import "./CreateProjectForm.css";
 
 function CreatePledgeForm() {
     const navigate = useNavigate();  
 
-    const [pledgetData, setPledgeData] = useState({
+    const [pledgeData, setPledgeData] = useState({
         amount: 0,
         comment: "",
         anonymous: true,
@@ -14,7 +15,7 @@ function CreatePledgeForm() {
         
     const handleChange = (event) => {
         const { id, value } = event.target;
-        setPledgetData((prevPledgeData) => ({
+        setPledgeData((prevPledgeData) => ({
             ...prevPledgeData,
             [id]: value,
         }));
@@ -72,7 +73,7 @@ console.log(response)
             />
         </div>
         <button type="submit" onClick={handleSubmit}>
-            Login
+            Submit
             </button>
       </form>
     );
