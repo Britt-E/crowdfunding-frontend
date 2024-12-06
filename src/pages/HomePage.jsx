@@ -1,7 +1,6 @@
 import useProjects from "../hooks/use-projects";
 import ProjectCard from "../components/ProjectCard";
 import CreateProjectForm from "../components/CreateProjectForm";
-import CreatePledgeForm from "../components/CreatePledgeForm";
 import "./HomePage.css";
 
 function HomePage() {
@@ -21,7 +20,6 @@ function HomePage() {
                 })}
         </div>
         <CreateProjectForm />
-        <CreatePledgeForm />
         </div>
     );
     }
