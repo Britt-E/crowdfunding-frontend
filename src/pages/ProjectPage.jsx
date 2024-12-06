@@ -32,7 +32,7 @@ function ProjectPage() {
                 );
             })}
         </ul>
-        <CreatePledgeForm />
+        <CreatePledgeForm projectId={project.id} />
     </div>
 );
 }

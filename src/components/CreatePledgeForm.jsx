@@ -3,14 +3,15 @@ import { useNavigate } from "react-router-dom";
 import postPledge from "../api/post-pledge.js";
 import "./CreateProjectForm.css";
 
-function CreatePledgeForm() {
+function CreatePledgeForm(props) {
     const navigate = useNavigate();  
+    const { projectId } = props;
 
     const [pledgeData, setPledgeData] = useState({
         amount: 0,
         comment: "",
         anonymous: true,
-        project: "",
+        project: projectId,
     });
         
     const handleChange = (event) => {
@@ -62,15 +63,6 @@ console.log(response)
             onChange={handleChange}
             />
             pledge is anonymous
-        </div>
-        <div>
-          <label htmlFor="project">Project:</label>
-          <input
-            type="number"
-            id="project"
-            placeholder=""
-            onChange={handleChange}
-            />
         </div>
         <button type="submit" onClick={handleSubmit}>
             Submit
