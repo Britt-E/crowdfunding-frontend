@@ -5,6 +5,8 @@ import CreatePledgeForm from "../components/CreatePledgeForm";
 import useAuth from "../hooks/use-auth.js";
 import { Link} from "react-router-dom";
 import UpdateProjectForm from "../components/UpdateProjectForm.jsx";
+import deleteProject from "../api/delete-project.js";
+import { useNavigate } from "react-router-dom";
 
 function ProjectPage() {
     // Here we use a hook that comes for free in react router called `useParams` to get the id from the URL so that we can pass it to our useProject hook.
@@ -13,6 +15,7 @@ function ProjectPage() {
     const { project, isLoading, error } = useProject(id);  
     // Get authentication information
     const {auth} = useAuth();
+    const navigate = useNavigate();
 
     if (isLoading) {
         return (<p>loading...</p>)
@@ -21,6 +24,15 @@ function ProjectPage() {
     if (error) {
         return (<p>{error.message}</p>)
     }
+
+    const handleDelete = (event) => {
+        deleteProject(
+                project.id   
+            ).then((response) => {
+              const id = response.id
+              navigate("/") 
+            });
+    };
 
     return (
     <div>
@@ -47,6 +59,9 @@ function ProjectPage() {
                 ) : (
                 <Link to="/login">Login to submit a pledge</Link>
                 )}
+        <button onClick={handleDelete}>
+            Delete
+        </button>
     </div>
 );
 }
