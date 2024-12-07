@@ -1,33 +1,72 @@
-/* General styling for the homepage container */
+/* HomePage.css */
+
+/* General page container */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #eef2f3; /* Soft off-white for a soothing background */
+  color: #34656d; /* Muted blue-green for text */
+}
+
+/* Wrapper for the project list */
 #project-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly; /* Center the cards with even spacing */
-  margin: 2rem 0;
-  padding: 0 2rem;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
 }
 
-/* Styling for individual project cards in the project list */
+/* Project card styling */
 #project-list .project-card {
-  margin: 1rem;
-  flex-basis: 22%; /* Card width for each project */
-  transition: transform 0.3s ease;
+  background-color: #ffffff; /* White background for cards */
+  border: 1px solid #c3bdb5; /* Subtle border */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  padding: 15px;
+  width: 300px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect for project cards */
 #project-list .project-card:hover {
-  transform: scale(1.05); /* Slightly enlarge on hover */
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
-/* Styling for loading and error messages */
+/* Create project form section */
+.create-project-form {
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f8f4f0; /* Soft beige */
+  border: 1px solid #c3bdb5;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Link to login */
+a {
+  text-decoration: none;
+  color: #34656d;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #1b3a4b; /* Darker shade for emphasis */
+}
+
+/* Loading and error text */
 p {
-  color: #fff;
-  font-size: 1.2rem;
+  font-size: 16px;
   text-align: center;
-  margin: 1.5rem 0;
+  color: #7a7a7a; /* Neutral gray */
+  margin: 20px;
 }
 
-/* Responsive layout for smaller screens */
+/* Responsive adjustments */
 @media (max-width: 768px) {
   #project-list {
       flex-direction: column;
@@ -35,6 +74,10 @@ p {
   }
 
   #project-list .project-card {
-      flex-basis: 90%; /* Stack the cards for small screens */
+      width: 90%; /* Full width for smaller screens */
+  }
+
+  .create-project-form {
+      width: 90%;
   }
 }

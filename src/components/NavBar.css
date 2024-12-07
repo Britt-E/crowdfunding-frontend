@@ -1,0 +1,47 @@
+/* NavBar.css */
+
+/* General reset for the navigation bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f4f0; /* Soft beige background */
+    border-bottom: 2px solid #c3bdb5; /* Subtle accent */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Links inside the navigation bar */
+nav a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #34656d; /* Muted blue-green */
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effects for links */
+nav a:hover {
+    background-color: #34656d; /* Muted blue-green */
+    color: #ffffff; /* White for contrast */
+}
+
+/* Active or focus state */
+nav a:active, nav a:focus {
+    outline: 2px solid #c3bdb5; /* Subtle earth tone outline */
+    outline-offset: 2px;
+}
+
+/* Mobile-friendly adjustments */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    nav a {
+        margin: 5px 0;
+        padding: 10px;
+    }
+}
