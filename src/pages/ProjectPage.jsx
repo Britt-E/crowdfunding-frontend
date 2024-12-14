@@ -41,8 +41,6 @@ function ProjectPage() {
         <h3>{project.image}</h3>
         <h3>{project.description}</h3>
         <h3>Created at: {project.date_created}</h3>
-        <h3>{`Status: ${project.is_open}`}</h3>
-        <h3>Pledges:</h3>
         <ul>
             {project.pledges.map((pledgeData, key) => {
                 return (
@@ -63,7 +61,7 @@ function ProjectPage() {
                 <Link to="/login">Login to update a pledge</Link>
                 )} */}
         {auth.token && (  
-        <button onClick={handleDelete}>
+        <button onClick={handleDelete} className="delete-button">
             Delete
         </button>
         )}

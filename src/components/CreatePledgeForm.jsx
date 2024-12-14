@@ -39,11 +39,11 @@ console.log(response)
       <form>
         <div>
           <h2>Pledge your time</h2>
-          <label htmlFor="amount">Amount:</label>
+          <label htmlFor="amount">Hours:</label>
           <input
             type="number"
             id="amount"
-            placeholder="pledge amount"
+            placeholder="hours you can pledge to help this project"
             onChange={handleChange}
             />
         </div>
@@ -56,7 +56,7 @@ console.log(response)
             onChange={handleChange}
             />
         </div>
-        <div>
+        {/* <div>
           <label htmlFor="anonymous">Anonymous:</label>
           <input
             type="checkbox"
@@ -64,7 +64,7 @@ console.log(response)
             onChange={handleChange}
             />
             pledge is anonymous
-        </div>
+        </div> */}
         <button type="submit" onClick={handleSubmit}>
             Submit
             </button>

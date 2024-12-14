@@ -1,11 +1,33 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap');
+
+/* CSS Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Color Variables */
+:root {
+  --primary: #345678;
+  --secondary: #4d4c7d;
+  --accent: #ff8ccb;
+  --background-start: #e0f7fa;
+  --background-end: #fef9c3;
+  --card-gradient: linear-gradient(135deg, #ffffff, #ffe9e9);
+  --button-gradient: linear-gradient(135deg, #6a0572, #b92e34);
+  --shadow: rgba(0, 0, 0, 0.15);
+}
+
 /* General page container */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #e0f7fa, #fef9c3); /* Aqua to soft yellow gradient */
-  color: #345678; /* Slate blue for text */
-  animation: gradientBackground 10s infinite alternate; /* Gentle animation for background */
+  background: linear-gradient(135deg, var(--background-start), var(--background-end));
+  color: var(--primary);
+  animation: gradientBackground 10s infinite alternate;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,46 +40,92 @@ body {
     background: linear-gradient(135deg, #e0f7fa, #fef9c3);
   }
   100% {
-    background: linear-gradient(135deg, #ffe0e9, #d0f2ff); /* Pink to light blue */
+    background: linear-gradient(135deg, #ffe0e9, #d0f2ff);
   }
 }
 
-/* Styling for main heading */
+/* Title styling */
 h2 {
-  font-size: 48px;
+  font-size: 56px;
   font-weight: 800;
-  color: #2a5873; /* Rich blue */
   text-align: center;
-  margin: 20px 0 10px;
-  letter-spacing: 1.5px;
-  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); /* Strong shadow for emphasis */
-  background: linear-gradient(90deg, #ff8ccb, #f3e6ff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; /* Gradient text effect */
-  animation: textGlow 1.5s ease-in-out infinite alternate;
+  margin: 30px 0 20px;
+  letter-spacing: 2px;
+  position: relative;
+  color: #ff8ccb;
+  text-shadow: 2px 2px 15px rgba(255, 140, 203, 0.3);
+  animation: floatText 4s ease-in-out infinite;
+  padding: 20px 0;
+}
+
+/* Floating animation for heading */
+@keyframes floatText {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Add decorative lines around heading with animation */
+h2::before,
+h2::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #ff8ccb, transparent);
+  left: 50%;
+  transform: translateX(-50%);
+  animation: pulseLine 3s ease-in-out infinite;
+}
+
+h2::before {
+  top: 0;
+  animation-delay: -1.5s;
+}
+
+h2::after {
+  bottom: 0;
+}
+
+/* Pulse animation for decorative lines */
+@keyframes pulseLine {
+  0% {
+    width: 60px;
+    opacity: 0.5;
+  }
+  50% {
+    width: 100px;
+    opacity: 1;
+  }
+  100% {
+    width: 60px;
+    opacity: 0.5;
+  }
 }
 
 /* Glowing text effect */
 @keyframes textGlow {
   0% {
-    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 0 15px rgba(255, 140, 203, 0.3);
   }
   100% {
-    text-shadow: 3px 3px 20px rgba(255, 0, 255, 0.8);
+    text-shadow: 0 0 25px rgba(255, 140, 203, 0.6);
   }
 }
 
-/* Styling for subheading */
+/* Subheading */
 h3 {
   font-size: 26px;
   font-weight: 500;
-  color: #4d4c7d; /* Deep purple */
+  color: var(--elegant-secondary);
   text-align: center;
   margin: 10px 0 30px;
   font-style: italic;
   letter-spacing: 1px;
-  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  text-shadow: 1px 1px 6px rgba(44, 62, 80, 0.1);
   opacity: 0.9;
 }
 
@@ -85,23 +153,48 @@ h3 {
 
 /* Project card styling */
 #project-list .project-card {
-  background: linear-gradient(135deg, #ffffff, #ffe9e9); /* Subtle pink gradient */
-  border-radius: 16px; /* Rounder corners */
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+  background: var(--card-gradient);
+  border-radius: 16px;
+  box-shadow: 0 6px 16px var(--shadow);
   padding: 20px;
   width: 320px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   overflow: hidden;
   position: relative;
-  z-index: 10; /* Ensure it's clickable */
-  pointer-events: auto; /* Ensure it's clickable */
+  z-index: 10;
+  pointer-events: auto;
   text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Hover effects for project card */
 #project-list .project-card:hover {
-  transform: translateY(-10px); /* Lift effect */
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+  transform: translateY(-10px) rotateX(5deg);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.2),
+    0 0 15px rgba(255, 140, 203, 0.5);
+}
+
+/* Shine effect on hover */
+#project-list .project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.75s;
+}
+
+#project-list .project-card:hover::before {
+  left: 150%;
 }
 
 /* Overlay effect */
@@ -112,28 +205,29 @@ h3 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
   opacity: 0;
-  pointer-events: none; /* Ensure overlay doesn't block clicks */
+  pointer-events: none;
   transition: opacity 0.3s ease;
 }
 
 /* Hover effect on card overlay */
 #project-list .project-card:hover::after {
-  opacity: 1; /* Light overlay effect */
+  opacity: 1;
 }
 
-/* Create project form section */
+/* Create project form */
 .create-project-form {
   margin: 40px auto;
   padding: 30px;
-  background: linear-gradient(135deg, #fff7e1, #ffffff); /* Soft beige gradient */
+  background: linear-gradient(135deg, #ffffff, #f8f9fa);
   border-radius: 20px;
   width: 80%;
   max-width: 500px;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+  box-shadow: 0 8px 18px var(--elegant-shadow);
   font-size: 16px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(44, 62, 80, 0.1);
 }
 
 .create-project-form:hover {
@@ -144,7 +238,7 @@ h3 {
 /* Link to login styled as a button */
 a.login-button {
   display: inline-block;
-  background: linear-gradient(135deg, #6a0572, #b92e34); /* Vibrant purple to red gradient */
+  background: linear-gradient(135deg, #34656d, #2c545a); /* Muted teal gradient */
   color: #ffffff;
   font-size: 18px;
   font-weight: bold;
@@ -152,24 +246,24 @@ a.login-button {
   padding: 14px 32px;
   border-radius: 50px;
   text-decoration: none;
-  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 12px rgba(52, 101, 109, 0.2);
   margin: 30px auto;
-  display: block; /* Centers the button */
+  display: block;
   max-width: 280px;
 }
 
 /* Hover effect on login button */
 a.login-button:hover {
-  background: linear-gradient(135deg, #9e036b, #7e3c29); /* Richer hover gradient */
-  transform: translateY(-6px); /* Slightly stronger lift */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(52, 101, 109, 0.3);
+  background: linear-gradient(135deg, #3a7179, #34656d); /* Slightly lighter on hover */
 }
 
 /* Active effect on login button */
 a.login-button:active {
-  transform: translateY(0); /* Reset lift */
-  background: #5a0436; /* Darker active state */
+  transform: translateY(0);
+  background: #34656d; /* Solid color when clicked */
 }
 
 /* Loading and error text */
@@ -194,7 +288,13 @@ p {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   h2 {
-    font-size: 36px;
+    font-size: 42px;
+    letter-spacing: 1.5px;
+  }
+  
+  h2::before,
+  h2::after {
+    width: 60px;
   }
 
   h3 {
@@ -213,4 +313,58 @@ p {
   .create-project-form {
     width: 90%;
   }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1A1B1E;
+    --text: #F8F9FA;
+    --card-bg: #2D3436;
+  }
+
+  #project-list .project-card {
+    border-color: rgba(108, 92, 231, 0.2);
+  }
+
+  .create-project-form {
+    background: var(--card-bg);
+  }
+}
+
+/* Delete button styling */
+.delete-button {
+  display: block;
+  background: linear-gradient(135deg, #ff7e7e, #ff5757);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  padding: 12px 28px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 87, 87, 0.2);
+  margin: 30px auto;
+  max-width: 200px;
+}
+
+/* Hover effect on delete button */
+.delete-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(255, 87, 87, 0.3);
+  background: linear-gradient(135deg, #ff6b6b, #ff4040);
+}
+
+/* Active effect on delete button */
+.delete-button:active {
+  transform: translateY(0);
+  background: #ff5757;
+}
+
+/* Focus state for accessibility */
+.delete-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 87, 87, 0.3);
 }
