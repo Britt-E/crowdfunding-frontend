@@ -1,83 +1,216 @@
-/* HomePage.css */
-
 /* General page container */
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #eef2f3; /* Soft off-white for a soothing background */
-  color: #34656d; /* Muted blue-green for text */
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #fef9c3); /* Aqua to soft yellow gradient */
+  color: #345678; /* Slate blue for text */
+  animation: gradientBackground 10s infinite alternate; /* Gentle animation for background */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Background animation */
+@keyframes gradientBackground {
+  0% {
+    background: linear-gradient(135deg, #e0f7fa, #fef9c3);
+  }
+  100% {
+    background: linear-gradient(135deg, #ffe0e9, #d0f2ff); /* Pink to light blue */
+  }
+}
+
+/* Styling for main heading */
+h2 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #2a5873; /* Rich blue */
+  text-align: center;
+  margin: 20px 0 10px;
+  letter-spacing: 1.5px;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); /* Strong shadow for emphasis */
+  background: linear-gradient(90deg, #ff8ccb, #f3e6ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Gradient text effect */
+  animation: textGlow 1.5s ease-in-out infinite alternate;
+}
+
+/* Glowing text effect */
+@keyframes textGlow {
+  0% {
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    text-shadow: 3px 3px 20px rgba(255, 0, 255, 0.8);
+  }
+}
+
+/* Styling for subheading */
+h3 {
+  font-size: 26px;
+  font-weight: 500;
+  color: #4d4c7d; /* Deep purple */
+  text-align: center;
+  margin: 10px 0 30px;
+  font-style: italic;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  opacity: 0.9;
 }
 
 /* Wrapper for the project list */
 #project-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
-  padding: 20px;
+  padding: 30px;
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Fade-in up animation for project list */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Project card styling */
 #project-list .project-card {
-  background-color: #ffffff; /* White background for cards */
-  border: 1px solid #c3bdb5; /* Subtle border */
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
-  padding: 15px;
-  width: 300px;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  background: linear-gradient(135deg, #ffffff, #ffe9e9); /* Subtle pink gradient */
+  border-radius: 16px; /* Rounder corners */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+  padding: 20px;
+  width: 320px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  z-index: 10; /* Ensure it's clickable */
+  pointer-events: auto; /* Ensure it's clickable */
+  text-align: center;
 }
 
+/* Hover effects for project card */
 #project-list .project-card:hover {
-  transform: translateY(-5px); /* Lift effect */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  transform: translateY(-10px); /* Lift effect */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Overlay effect */
+#project-list .project-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  pointer-events: none; /* Ensure overlay doesn't block clicks */
+  transition: opacity 0.3s ease;
+}
+
+/* Hover effect on card overlay */
+#project-list .project-card:hover::after {
+  opacity: 1; /* Light overlay effect */
 }
 
 /* Create project form section */
 .create-project-form {
-  margin: 30px auto;
-  padding: 20px;
-  background-color: #f8f4f0; /* Soft beige */
-  border: 1px solid #c3bdb5;
-  border-radius: 8px;
+  margin: 40px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #fff7e1, #ffffff); /* Soft beige gradient */
+  border-radius: 20px;
   width: 80%;
   max-width: 500px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+  font-size: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Link to login */
-a {
-  text-decoration: none;
-  color: #34656d;
+.create-project-form:hover {
+  transform: scale(1.05); /* Subtle zoom on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+}
+
+/* Link to login styled as a button */
+a.login-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #6a0572, #b92e34); /* Vibrant purple to red gradient */
+  color: #ffffff;
+  font-size: 18px;
   font-weight: bold;
-  transition: color 0.3s ease;
+  text-align: center;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  margin: 30px auto;
+  display: block; /* Centers the button */
+  max-width: 280px;
 }
 
-a:hover {
-  color: #1b3a4b; /* Darker shade for emphasis */
+/* Hover effect on login button */
+a.login-button:hover {
+  background: linear-gradient(135deg, #9e036b, #7e3c29); /* Richer hover gradient */
+  transform: translateY(-6px); /* Slightly stronger lift */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+}
+
+/* Active effect on login button */
+a.login-button:active {
+  transform: translateY(0); /* Reset lift */
+  background: #5a0436; /* Darker active state */
 }
 
 /* Loading and error text */
 p {
-  font-size: 16px;
+  font-size: 18px;
   text-align: center;
-  color: #7a7a7a; /* Neutral gray */
+  color: #6c757d; /* Neutral gray */
   margin: 20px;
+  animation: fadeIn 1s ease-in-out; /* Adds dynamic loading appearance */
+}
+
+/* Fade-in animation for text */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  h2 {
+    font-size: 36px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
   #project-list {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   #project-list .project-card {
-      width: 90%; /* Full width for smaller screens */
+    width: 90%; /* Full width for smaller screens */
   }
 
   .create-project-form {
-      width: 90%;
+    width: 90%;
   }
 }

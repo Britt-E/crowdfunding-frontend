@@ -39,6 +39,7 @@ function UpdateProjectForm(props) {
     return (
       <form>
         <div>
+            <h2>Update Project</h2>
           <label htmlFor="title">Title:</label>
           <input
             type="text"

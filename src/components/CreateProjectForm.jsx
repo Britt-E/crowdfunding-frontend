@@ -41,6 +41,7 @@ function CreateProjectForm() {
     return (
       <form>
         <div>
+        <h2>Create a project</h2>
           <label htmlFor="title">Title:</label>
           <input
             type="text"

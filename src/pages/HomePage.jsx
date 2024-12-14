@@ -17,6 +17,8 @@ function HomePage() {
     } 
     return (
         <div>
+            <h2>Project Buddy</h2>
+            <h3>Need some help with your next project?</h3>
         <div id="project-list">
             {projects.map((projectData, key) => {
                 return <ProjectCard key={key} projectData={projectData} />;  
@@ -25,7 +27,7 @@ function HomePage() {
         {auth.token ? (
             <CreateProjectForm />
                 ) : (
-                <Link to="/login">Login to create your project</Link>
+                <Link to="/login" className="login-button">Login to create your project</Link>
                 )}
         </div>
     );

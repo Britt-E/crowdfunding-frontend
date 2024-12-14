@@ -1,0 +1,86 @@
+/* CreateProjectForm.css */
+
+/* General form container */
+form {
+    background-color: #ffffff; /* Clean white background */
+    border: 1px solid #c3bdb5; /* Subtle border */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px; /* Restricts width for readability */
+    font-family: Arial, sans-serif;
+    color: #34656d; /* Muted blue-green text */
+}
+
+/* Wrapper for form elements */
+form div {
+    margin-bottom: 20px;
+}
+
+/* Label styling */
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #1b3a4b; /* Darker shade for emphasis */
+}
+
+/* Input fields */
+form input[type="text"],
+form input[type="number"],
+form input[type="url"],
+form input[type="datetime"] {
+    width: 100%; /* Full width for better UX */
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #c3bdb5; /* Matches the border style */
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Input focus effect */
+form input:focus {
+    border-color: #34656d; /* Muted blue-green for focus */
+    box-shadow: 0 0 5px rgba(52, 101, 109, 0.5); /* Highlight effect */
+    outline: none;
+}
+
+/* Submit button styling */
+form button {
+    background-color: #34656d; /* Muted blue-green */
+    color: #ffffff; /* White text for contrast */
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Button hover effect */
+form button:hover {
+    background-color: #1b3a4b; /* Darker shade for hover */
+    transform: translateY(-2px); /* Lift effect */
+}
+
+/* Button active effect */
+form button:active {
+    transform: translateY(0); /* Reset lift effect */
+    background-color: #123640; /* Even darker for active state */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    form {
+        width: 90%; /* Adapts form to fit smaller screens */
+    }
+}
+
+/* Additional styling for date picker */
+form input[type="datetime"] {
+    font-family: Arial, sans-serif; /* Matches overall font */
+    padding: 10px;
+}

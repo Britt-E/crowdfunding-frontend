@@ -7,6 +7,7 @@ import { Link} from "react-router-dom";
 import UpdateProjectForm from "../components/UpdateProjectForm.jsx";
 import deleteProject from "../api/delete-project.js";
 import { useNavigate } from "react-router-dom";
+import "./ProjectPage.css";
 
 function ProjectPage() {
     // Here we use a hook that comes for free in react router called `useParams` to get the id from the URL so that we can pass it to our useProject hook.
@@ -37,6 +38,8 @@ function ProjectPage() {
     return (
     <div>
         <h2>{project.title}</h2>
+        <h3>{project.image}</h3>
+        <h3>{project.description}</h3>
         <h3>Created at: {project.date_created}</h3>
         <h3>{`Status: ${project.is_open}`}</h3>
         <h3>Pledges:</h3>
@@ -52,16 +55,18 @@ function ProjectPage() {
         {auth.token ? (
             <CreatePledgeForm projectId={project.id} />
                 ) : (
-                <Link to="/login">Login to submit a pledge</Link>
+                <Link to="/login" className="login-button">Login to pledge your time</Link>
                 )}
-        {auth.token ? (
+        {/* {auth.token ? (
             <UpdateProjectForm project={project} />
                 ) : (
-                <Link to="/login">Login to submit a pledge</Link>
-                )}
+                <Link to="/login">Login to update a pledge</Link>
+                )} */}
+        {auth.token && (  
         <button onClick={handleDelete}>
             Delete
         </button>
+        )}
     </div>
 );
 }
