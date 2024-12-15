@@ -58,16 +58,6 @@ h2 {
   padding: 20px 0;
 }
 
-/* Glowing text effect */
-@keyframes textGlow {
-  0% {
-    text-shadow: 0 0 15px rgba(52, 101, 109, 0.2);
-  }
-  100% {
-    text-shadow: 0 0 25px rgba(52, 101, 109, 0.4);
-  }
-}
-
 /* Subheading */
 h3 {
   font-size: 26px;
@@ -183,14 +173,14 @@ h3 {
 }
 
 .create-project-form:hover {
-  transform: scale(1.05); /* Subtle zoom on hover */
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+  transform: scale(1.05); /* zoom on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
 /* Link to login styled as a button */
 a.login-button {
   display: inline-block;
-  background: linear-gradient(135deg, #34656d, #2c545a); /* Muted teal gradient */
+  background: linear-gradient(135deg, #34656d, #2c545a); 
   color: #ffffff;
   font-size: 18px;
   font-weight: bold;
@@ -209,25 +199,25 @@ a.login-button {
 a.login-button:hover {
   transform: translateY(-6px);
   box-shadow: 0 10px 20px rgba(52, 101, 109, 0.3);
-  background: linear-gradient(135deg, #3a7179, #34656d); /* Slightly lighter on hover */
+  background: linear-gradient(135deg, #3a7179, #34656d); 
 }
 
 /* Active effect on login button */
 a.login-button:active {
   transform: translateY(0);
-  background: #34656d; /* Solid color when clicked */
+  background: #34656d; 
 }
 
 /* Loading and error text */
 p {
   font-size: 18px;
   text-align: center;
-  color: #6c757d; /* Neutral gray */
+  color: #6c757d; 
   margin: 20px;
-  animation: fadeIn 1s ease-in-out; /* Adds dynamic loading appearance */
+  animation: fadeIn 1s ease-in-out; 
 }
 
-/* Fade-in animation for text */
+/* Fade in animation for text */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -259,7 +249,7 @@ p {
   }
 
   #project-list .project-card {
-    width: 90%; /* Full width for smaller screens */
+    width: 90%; 
   }
 
   .create-project-form {

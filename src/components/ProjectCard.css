@@ -1,63 +1,61 @@
-/* ProjectCard.css */
-
 /* Main card container */
 .project-card {
-  background-color: #ffffff; /* Clean white background */
-  border: 1px solid #c3bdb5; /* Subtle border */
+  background-color: #ffffff; 
+  border: 1px solid #c3bdb5; 
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
-  overflow: hidden; /* Ensures content stays within rounded borders */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  overflow: hidden; 
   transition: transform 0.2s ease, box-shadow 0.3s ease;
-  text-align: center; /* Centers content within the card */
+  text-align: center; 
   cursor: pointer;
 }
 
 /* Hover effect for the card */
 .project-card:hover {
-  transform: translateY(-5px); /* Subtle lift on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+  transform: translateY(-5px); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 /* Image styling */
 .project-card img {
-  width: 100%; /* Full width of the card */
-  height: 200px; /* Fixed height for uniformity */
-  object-fit: cover; /* Ensures images scale nicely */
-  border-bottom: 1px solid #c3bdb5; /* Separation line */
+  width: 100%; 
+  height: 200px; 
+  object-fit: cover; 
+  border-bottom: 1px solid #c3bdb5; 
 }
 
 /* Title styling */
 .project-card h3 {
   font-size: 18px;
-  color: #34656d; /* Muted blue-green */
+  color: #34656d; 
   margin: 15px 10px;
   transition: color 0.3s ease;
 }
 
 /* Title hover effect */
 .project-card:hover h3 {
-  color: #1b3a4b; /* Darker shade for emphasis */
+  color: #1b3a4b; 
 }
 
 /* Link reset */
 .project-card a {
-  text-decoration: none; /* Removes underline */
-  color: inherit; /* Inherits color from parent */
-  display: block; /* Ensures the link is clickable across the card */
+  text-decoration: none; 
+  color: inherit; 
+  display: block; 
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
   .project-card {
-      width: 90%; /* Adapts width for smaller screens */
+      width: 90%; 
       margin: 10px auto;
   }
 
   .project-card img {
-      height: 150px; /* Scales image height for smaller cards */
+      height: 150px; 
   }
 
   .project-card h3 {
-      font-size: 16px; /* Slightly smaller font size */
+      font-size: 16px; 
   }
 }
