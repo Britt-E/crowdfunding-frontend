@@ -375,3 +375,71 @@ p {
     max-width: 95%;
   }
 }
+
+/* Logo heading container */
+.logo-container {
+  text-align: center;
+  margin: 40px auto;
+  padding: 20px;
+  position: relative;
+}
+
+/* Main logo text */
+.logo-text {
+  font-size: 52px;
+  font-weight: 800;
+  color: #34656d;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0 15px;
+}
+
+/* Decorative elements */
+.logo-text::before,
+.logo-text::after {
+  content: '{ }';
+  font-size: 42px;
+  color: #9bc4bc;
+  opacity: 0.7;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.logo-text::before {
+  left: -40px;
+}
+
+.logo-text::after {
+  right: -40px;
+}
+
+/* Tagline */
+.logo-tagline {
+  font-size: 16px;
+  color: #778899;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  font-weight: 400;
+}
+
+/* Connection lines */
+.connection-line {
+  position: absolute;
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #9bc4bc, transparent);
+  top: 50%;
+}
+
+.connection-line.left {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.connection-line.right {
+  right: 0;
+  transform: translateX(100%);
+}

@@ -42,7 +42,12 @@ function HomePage() {
             <div className="particles">
                 {renderParticles()}
             </div>
-            <h2>Project Buddy</h2>
+            <div className="logo-container">
+                <div className="connection-line left"></div>
+                <div className="connection-line right"></div>
+                <h2 className="logo-text">Project Buddy</h2>
+                <div className="logo-tagline">Connect • Collaborate • Create</div>
+            </div>
             <h3>Need some help with your next project?</h3>
             <div id="project-list">
                 {projects.map((projectData, key) => {
