@@ -368,3 +368,51 @@ p {
   outline: none;
   box-shadow: 0 0 0 3px rgba(255, 87, 87, 0.3);
 }
+
+/* Update project form styling */
+.update-project-form {
+  margin: 40px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #ffffff, #f8f9fa);
+  border-radius: 20px;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 8px 18px var(--shadow);
+  font-size: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(52, 101, 109, 0.1);
+}
+
+/* Update button styling */
+.update-button {
+  display: block;
+  background: linear-gradient(135deg, #34656d, #2c545a);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  padding: 12px 28px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(52, 101, 109, 0.2);
+  margin: 20px auto;
+  max-width: 200px;
+}
+
+.update-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(52, 101, 109, 0.3);
+  background: linear-gradient(135deg, #3a7179, #34656d);
+}
+
+.update-button:active {
+  transform: translateY(0);
+  background: #34656d;
+}
+
+.update-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 101, 109, 0.3);
+}

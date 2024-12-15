@@ -55,11 +55,11 @@ function ProjectPage() {
                 ) : (
                 <Link to="/login" className="login-button">Login to pledge your time</Link>
                 )}
-        {/* {auth.token ? (
+        {auth.token ? (
             <UpdateProjectForm project={project} />
-                ) : (
-                <Link to="/login">Login to update a pledge</Link>
-                )} */}
+        ) : (
+            <Link to="/login" className="login-button">Login to update project</Link>
+        )}
         {auth.token && (  
         <button onClick={handleDelete} className="delete-button">
             Delete
