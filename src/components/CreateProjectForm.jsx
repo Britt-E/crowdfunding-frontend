@@ -77,15 +77,6 @@ function CreateProjectForm() {
             onChange={handleChange}
             />
         </div>
-        <div>
-          <label htmlFor="date_created">Date Created:</label>
-          <input
-            type="datetime"
-            id="date_created"
-            placeholder="DD/MM/YYYY"
-            onChange={handleChange}
-            />
-        </div>
         <button type="submit" onClick={handleSubmit}>
             Create
             </button>

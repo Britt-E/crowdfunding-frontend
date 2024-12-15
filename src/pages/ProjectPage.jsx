@@ -40,7 +40,6 @@ function ProjectPage() {
         <h2>{project.title}</h2>
         <img src={project.image} className="project-image" />
         <h3>{project.description}</h3>
-        <h3>Created at: {project.date_created}</h3>
         <ul>
             {project.pledges.map((pledgeData, key) => {
                 return (
