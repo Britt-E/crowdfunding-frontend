@@ -60,7 +60,7 @@ function UpdateProjectForm(props) {
             />
         </div>
         <div>
-          <label htmlFor="goal">Goal:</label>
+          <label htmlFor="goal">Estimated Hours:</label>
           <input
             type="number"
             id="goal"

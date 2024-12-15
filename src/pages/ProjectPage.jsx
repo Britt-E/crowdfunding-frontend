@@ -58,7 +58,7 @@ function ProjectPage() {
         {auth.token && (<UpdateProjectForm project={project} />)}
         {auth.token && (  
         <button onClick={handleDelete} className="delete-button">
-            Delete
+            Delete Project
         </button>
         )}
     </div>
