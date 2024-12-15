@@ -78,7 +78,7 @@ function CreateProjectForm() {
             />
         </div>
         <div>
-          <label htmlFor="date_created">Date_Created:</label>
+          <label htmlFor="date_created">Date Created:</label>
           <input
             type="datetime"
             id="date_created"

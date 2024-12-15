@@ -38,7 +38,7 @@ function ProjectPage() {
     return (
     <div>
         <h2>{project.title}</h2>
-        <h3>{project.image}</h3>
+        <img src={project.image} className="project-image" />
         <h3>{project.description}</h3>
         <h3>Created at: {project.date_created}</h3>
         <ul>
@@ -55,11 +55,7 @@ function ProjectPage() {
                 ) : (
                 <Link to="/login" className="login-button">Login to pledge your time</Link>
                 )}
-        {auth.token ? (
-            <UpdateProjectForm project={project} />
-        ) : (
-            <Link to="/login" className="login-button">Login to update project</Link>
-        )}
+        {auth.token && (<UpdateProjectForm project={project} />)}
         {auth.token && (  
         <button onClick={handleDelete} className="delete-button">
             Delete

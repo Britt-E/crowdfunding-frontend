@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import postLogin from "../api/post-login.js";
 import useAuth from "../hooks/use-auth.js";
 
+import "./LoginForm.css";
+
 function LoginForm() {
     const navigate = useNavigate();  
     const {auth, setAuth} = useAuth();

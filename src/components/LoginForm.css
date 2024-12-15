@@ -1,0 +1,11 @@
+/* Input fields */
+form input[type="text"],
+form input[type="password"] {
+    width: 100%; /* Full width for better UX */
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #c3bdb5; /* Matches the border style */
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
