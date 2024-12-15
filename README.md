@@ -1,8 +1,25 @@
-# React + Vite
+# React Project Front End
+Brittany Evans
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Planning:
+### Concept/Name
+Project Buddy is a platform where skilled individuals volunteer their time to assist others with tech and design projects, fostering collaboration and knowledge-sharing.
 
-Currently, two official plugins are available:
+### Front End Pages/Functionality
+- Home Page
+    - Log In/Sign Up
+    - Display all projects
+    - Click project to view project detail
+- Project Pages
+    - Project Description
+    - Project Image
+    - Login to create a project or pledge
+- User Profile
+    - Update project
+    - Delete project
+    - Create a pledge
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Demo
+![](video.gif)
+
+
