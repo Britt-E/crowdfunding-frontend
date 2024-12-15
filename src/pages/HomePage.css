@@ -1,5 +1,5 @@
-/* Import fonts */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap');
+/* Import refined fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* CSS Reset and Base Styles */
 * {
@@ -10,38 +10,31 @@
 
 /* Color Variables */
 :root {
-  --primary: #345678;
-  --secondary: #4d4c7d;
-  --accent: #ff8ccb;
-  --background-start: #e0f7fa;
-  --background-end: #fef9c3;
-  --card-gradient: linear-gradient(135deg, #ffffff, #ffe9e9);
-  --button-gradient: linear-gradient(135deg, #6a0572, #b92e34);
-  --shadow: rgba(0, 0, 0, 0.15);
+  --primary: #2A4365;  
+  --secondary: #4299E1; 
+  --accent: #48BB78;   
+  --background: #F7FAFC;
+  --surface: #FFFFFF;
+  --text-primary: #2D3748;
+  --text-secondary: #4A5568;
+  --border: #E2E8F0;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* General page container */
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, var(--background-start), var(--background-end));
-  color: var(--primary);
-  animation: gradientBackground 10s infinite alternate;
+  font-family: 'Inter', sans-serif;
+  background: var(--background);
+  color: var(--text-primary);
+  line-height: 1.6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-/* Background animation */
-@keyframes gradientBackground {
-  0% {
-    background: linear-gradient(135deg, #e0f7fa, #fef9c3);
-  }
-  100% {
-    background: linear-gradient(135deg, #ffe0e9, #d0f2ff);
-  }
 }
 
 /* Title styling */
@@ -73,11 +66,12 @@ h3 {
 
 /* Wrapper for the project list */
 #project-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
-  justify-content: center;
-  padding: 30px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
   animation: fadeInUp 1s ease-out;
 }
 
@@ -95,9 +89,11 @@ h3 {
 
 /* Project card styling */
 #project-list .project-card {
-  background: var(--card-gradient);
-  border-radius: 16px;
-  box-shadow: 0 6px 16px var(--shadow);
+  background: var(--surface);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow-md);
   padding: 20px;
   width: 320px;
   transition: all 0.3s ease;
@@ -111,10 +107,8 @@ h3 {
 
 /* Hover effects for project card */
 #project-list .project-card:hover {
-  transform: translateY(-10px) rotateX(5deg);
-  box-shadow: 
-    0 15px 35px rgba(0, 0, 0, 0.2),
-    0 0 15px rgba(16, 72, 145, 0.5);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
 }
 
 /* Shine effect on hover */
@@ -173,15 +167,15 @@ h3 {
 }
 
 .create-project-form:hover {
-  transform: scale(1.05); /* zoom on hover */
+  transform: scale(1.05); 
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
 /* Link to login styled as a button */
 a.login-button {
   display: inline-block;
-  background: linear-gradient(135deg, #34656d, #2c545a); 
-  color: #ffffff;
+  background: var(--accent);
+  color: white;
   font-size: 18px;
   font-weight: bold;
   text-align: center;
@@ -189,7 +183,7 @@ a.login-button {
   border-radius: 50px;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 12px rgba(52, 101, 109, 0.2);
+  box-shadow: var(--shadow-sm);
   margin: 30px auto;
   display: block;
   max-width: 280px;
@@ -442,4 +436,176 @@ p {
 .connection-line.right {
   right: 0;
   transform: translateX(100%);
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #2A4365, #4299E1);
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 60px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo styling in hero */
+.hero-section .logo-container {
+  margin-bottom: 40px;
+}
+
+.hero-section .logo-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  letter-spacing: -1px;
+  text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-section .logo-tagline {
+  font-size: 20px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 20px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.hero-section h3 {
+  color: white;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 30px 0;
+  opacity: 0.9;
+}
+
+/* Features section */
+.features-section {
+  background: white;
+  padding: 80px 20px;
+  margin-bottom: 60px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: var(--background);
+  padding: 40px 30px;
+  border-radius: 16px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-card h3 {
+  color: var(--primary);
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Project section title */
+.projects-section-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 60px 0 40px;
+}
+
+/* Updated project grid */
+#project-list {
+  background: var(--background);
+  padding: 60px 40px;
+  margin: 0 auto;
+}
+
+/* Updated project cards */
+#project-list .project-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  border: 1px solid var(--border);
+}
+
+#project-list .project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+#project-list .project-card h3 {
+  padding: 20px;
+  font-size: 20px;
+  color: var(--primary);
+  margin: 0;
+}
+
+/* Updated button styling */
+.login-button {
+  background: var(--accent);
+  color: white;
+  padding: 16px 40px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: 30px;
+  box-shadow: 0 4px 15px rgba(72, 187, 120, 0.2);
+}
+
+.login-button:hover {
+  background: #3da066;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(72, 187, 120, 0.3);
+}
+
+/* Bottom CTA section */
+.bottom-cta {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    margin-top: 60px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-cta h3 {
+    color: white;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+}
+
+.bottom-cta .login-button {
+    background: var(--accent);
+    margin: 0 auto;
+}
+
+.bottom-cta .login-button:hover {
+    background: #3da066;
 }

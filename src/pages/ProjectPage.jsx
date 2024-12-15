@@ -36,32 +36,42 @@ function ProjectPage() {
     };
 
     return (
-    <div>
-        <h2>{project.title}</h2>
-        <img src={project.image} className="project-image" />
-        <h3>{project.description}</h3>
-        <ul>
-            {project.pledges.map((pledgeData, key) => {
-                return (
-                <li key={key}>
-                    {pledgeData.amount} from {pledgeData.supporter}
-                </li>
-                );
-            })}
-        </ul>
-        {auth.token ? (
-            <CreatePledgeForm projectId={project.id} />
-                ) : (
-                <Link to="/login" className="login-button">Login to pledge your time</Link>
-                )}
-        {auth.token && (<UpdateProjectForm project={project} />)}
-        {auth.token && (  
-        <button onClick={handleDelete} className="delete-button">
-            Delete Project
-        </button>
-        )}
-    </div>
-);
+        <div className="project-page">
+            <div className="project-header">
+                <h1 className="project-title">{project.title}</h1>
+                <p className="project-description">{project.description}</p>
+                <img src={project.image} className="project-image" alt={project.title} />
+            </div>
+
+            <div className="pledges-section">
+                <h2 className="pledges-title">Pledged Support</h2>
+                <ul className="pledges-list">
+                    {project.pledges.map((pledgeData, key) => (
+                        <li key={key} className="pledge-item">
+                            <span className="pledge-amount">{pledgeData.amount} hours</span>
+                            <span className="pledge-supporter">from {pledgeData.supporter}</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            {auth.token ? (
+                <div className="project-actions">
+                    <CreatePledgeForm projectId={project.id} />
+                    <UpdateProjectForm project={project} />
+                    <button 
+                        onClick={handleDelete} 
+                        className="delete-button"
+                        aria-label="Delete Project"
+                    >
+                        Delete Project
+                    </button>
+                </div>
+            ) : (
+                <Link to="/login" className="login-button">Login to support this project</Link>
+            )}
+        </div>
+    );
 }
 
 export default ProjectPage;

@@ -39,25 +39,48 @@ function HomePage() {
 
     return (
         <div>
-            <div className="particles">
-                {renderParticles()}
-            </div>
-            <div className="logo-container">
-                <div className="connection-line left"></div>
-                <div className="connection-line right"></div>
-                <h2 className="logo-text">Project Buddy</h2>
-                <div className="logo-tagline">Connect • Collaborate • Create</div>
-            </div>
-            <h3>Need some help with your next project?</h3>
+            <section className="hero-section">
+                <div className="logo-container">
+                    <h1 className="logo-text">Project Buddy</h1>
+                    <div className="logo-tagline">Connect • Collaborate • Create</div>
+                </div>
+                <h3>Need some help with your next project?</h3>
+                {!auth.token && (
+                    <Link to="/signup" className="login-button">Join Our Community</Link>
+                )}
+            </section>
+
+            <section className="features-section">
+                <div className="features-grid">
+                    <div className="feature-card">
+                        <h3>Connect</h3>
+                        <p>Find skilled volunteers ready to help with your project</p>
+                    </div>
+                    <div className="feature-card">
+                        <h3>Collaborate</h3>
+                        <p>Work together to bring your ideas to life</p>
+                    </div>
+                    <div className="feature-card">
+                        <h3>Create</h3>
+                        <p>Build amazing projects with expert guidance</p>
+                    </div>
+                </div>
+            </section>
+
+            <h2 className="projects-section-title">Featured Projects</h2>
             <div id="project-list">
                 {projects.map((projectData, key) => {
                     return <ProjectCard key={key} projectData={projectData} />;  
                 })}
             </div>
+            
             {auth.token ? (
                 <CreateProjectForm />
             ) : (
-                <Link to="/login" className="login-button">Login to create your project</Link>
+                <div className="bottom-cta">
+                    <h3>Ready to get started?</h3>
+                    <Link to="/signup" className="login-button">Join Our Community</Link>
+                </div>
             )}
         </div>
     );

@@ -1,45 +1,50 @@
-/* Reset for the navigation bar */
+/* Navigation styling */
 nav {
+    background: white;
+    padding: 20px 40px;
+    box-shadow: var(--shadow-sm);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #f8f4f0; 
-    border-bottom: 2px solid #c3bdb5; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* Links inside the navigation bar */
 nav a {
+    color: var(--text-primary);
     text-decoration: none;
-    font-size: 16px;
-    color: #34656d; 
+    font-weight: 500;
     padding: 8px 16px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
-/* Hover effects for links */
 nav a:hover {
-    background-color: #34656d; 
-    color: #ffffff; 
+    background: var(--background);
+    color: var(--primary);
 }
 
-/* Active or focus state */
-nav a:active, nav a:focus {
-    outline: 2px solid #c3bdb5; 
-    outline-offset: 2px;
+nav .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
 }
 
-/* Mobile adjustments */
+nav .nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Responsive navigation */
 @media (max-width: 768px) {
     nav {
-        flex-direction: column;
-        align-items: flex-start;
+        padding: 15px 20px;
     }
     
-    nav a {
-        margin: 5px 0;
-        padding: 10px;
+    nav .nav-links {
+        gap: 10px;
     }
 }

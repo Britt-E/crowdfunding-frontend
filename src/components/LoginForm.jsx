@@ -1,10 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate, Link } from "react-router-dom";
 import postLogin from "../api/post-login.js";
 import useAuth from "../hooks/use-auth.js";
-
-import "./LoginForm.css";
+import "./Forms.css";
 
 function LoginForm() {
     const navigate = useNavigate();  
@@ -22,6 +20,7 @@ function LoginForm() {
             [id]: value,
         }));
     };
+
     const handleSubmit = (event) => {
         event.preventDefault();
         if (credentials.username && credentials.password) {
@@ -39,30 +38,36 @@ function LoginForm() {
     };
 
     return (
-      <form>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            placeholder="Enter username"
-            onChange={handleChange}
-            />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            placeholder="Password"
-            onChange={handleChange}
-            />
-        </div>
-        <button type="submit" onClick={handleSubmit}>
-            Login
+        <form className="form-container">
+            <h2 className="form-title">Welcome Back</h2>
+            <div className="form-group">
+                <label className="form-label" htmlFor="username">Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    className="form-input"
+                    placeholder="Enter your username"
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="form-group">
+                <label className="form-label" htmlFor="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    className="form-input"
+                    placeholder="Enter your password"
+                    onChange={handleChange}
+                />
+            </div>
+            <button type="submit" className="form-button" onClick={handleSubmit}>
+                Log In
             </button>
-      </form>
+            <Link to="/signup" className="form-link">
+                Don't have an account? Sign up here
+            </Link>
+        </form>
     );
-  }
-  
+}
+
 export default LoginForm;

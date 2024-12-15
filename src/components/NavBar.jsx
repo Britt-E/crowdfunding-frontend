@@ -11,23 +11,22 @@ function NavBar() {
     };
 
     return (
-    <div>
-        <nav>
-            <Link to="/">Home</Link>
-            <div>
-
-            {auth.token ? (
-                <Link to="/" onClick={handleLogout}>
-                    Log Out
-                </Link>
-                ) : (
-                    <Link to="/login">Login</Link>
-                )}
-            <Link to="/signup">Sign Up</Link>
-            </div>
-        </nav>
-        <Outlet />
-    </div>
+        <div>
+            <nav>
+                <Link to="/" className="logo">Project Buddy</Link>
+                <div className="nav-links">
+                    {auth.token ? (
+                        <Link to="/" onClick={handleLogout}>Log Out</Link>
+                    ) : (
+                        <>
+                            <Link to="/login">Login</Link>
+                            <Link to="/signup">Sign Up</Link>
+                        </>
+                    )}
+                </div>
+            </nav>
+            <Outlet />
+        </div>
     );
 }
 

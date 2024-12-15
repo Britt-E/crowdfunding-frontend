@@ -1,10 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-import postLogin from "../api/post-login.js";
-import useAuth from "../hooks/use-auth.js";
+import { useNavigate, Link } from "react-router-dom";
 import postSignup from "../api/signup.js";
-import "./SignupForm.css";
+import useAuth from "../hooks/use-auth.js";
+import "./Forms.css";
 
 function SignupForm() {
     const navigate = useNavigate();  
@@ -23,6 +21,7 @@ function SignupForm() {
             [id]: value,
         }));
     };
+
     const handleSubmit = (event) => {
         event.preventDefault();
         if (credentials.username && credentials.password && credentials.email) {
@@ -41,39 +40,46 @@ function SignupForm() {
     };
 
     return (
-      <form>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="text"
-            id="email"
-            placeholder="Email"
-            onChange={handleChange}
-            />
-        </div>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            placeholder="Enter username"
-            onChange={handleChange}
-            />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            placeholder="Password"
-            onChange={handleChange}
-            />
-        </div>
-        <button type="submit" onClick={handleSubmit}>
-            Sign Up
+        <form className="form-container">
+            <h2 className="form-title">Join Project Buddy</h2>
+            <div className="form-group">
+                <label className="form-label" htmlFor="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    className="form-input"
+                    placeholder="Enter your email"
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="form-group">
+                <label className="form-label" htmlFor="username">Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    className="form-input"
+                    placeholder="Choose a username"
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="form-group">
+                <label className="form-label" htmlFor="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    className="form-input"
+                    placeholder="Create a password"
+                    onChange={handleChange}
+                />
+            </div>
+            <button type="submit" className="form-button" onClick={handleSubmit}>
+                Sign Up
             </button>
-      </form>
+            <Link to="/login" className="form-link">
+                Already have an account? Log in here
+            </Link>
+        </form>
     );
-  }
-  
+}
+
 export default SignupForm;
