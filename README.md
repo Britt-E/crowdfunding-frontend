@@ -1,5 +1,6 @@
 # React Project Front End
 Brittany Evans
+![](projectbuddy.png)
 
 ## Planning:
 ### Concept/Name
