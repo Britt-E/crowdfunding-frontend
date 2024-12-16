@@ -609,3 +609,15 @@ p {
 .bottom-cta .login-button:hover {
     background: #3da066;
 }
+
+/* Feature card icon styling */
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1);
+}

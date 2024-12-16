@@ -1,0 +1,8 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Network/Connection Icon -->
+    <circle cx="40" cy="20" r="12" fill="#4299E1"/>
+    <circle cx="15" cy="55" r="12" fill="#4299E1"/>
+    <circle cx="65" cy="55" r="12" fill="#4299E1"/>
+    <path d="M40 32L15 43" stroke="#4299E1" stroke-width="4"/>
+    <path d="M40 32L65 43" stroke="#4299E1" stroke-width="4"/>
+</svg> 

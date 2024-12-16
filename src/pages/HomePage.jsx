@@ -4,6 +4,9 @@ import CreateProjectForm from "../components/CreateProjectForm";
 import useAuth from "../hooks/use-auth.js";
 import { Link} from "react-router-dom";
 import "./HomePage.css";
+import connectIcon from '../assets/connect-icon.svg';
+import collaborateIcon from '../assets/collaborate-icon.svg';
+import createIcon from '../assets/create-icon.svg';
 
 function HomePage() {
     const { projects, isLoading, error } = useProjects(); 
@@ -53,14 +56,17 @@ function HomePage() {
             <section className="features-section">
                 <div className="features-grid">
                     <div className="feature-card">
+                        <img src={connectIcon} alt="Connect" className="feature-icon" />
                         <h3>Connect</h3>
                         <p>Find skilled volunteers ready to help with your project</p>
                     </div>
                     <div className="feature-card">
+                        <img src={collaborateIcon} alt="Collaborate" className="feature-icon" />
                         <h3>Collaborate</h3>
                         <p>Work together to bring your ideas to life</p>
                     </div>
                     <div className="feature-card">
+                        <img src={createIcon} alt="Create" className="feature-icon" />
                         <h3>Create</h3>
                         <p>Build amazing projects with expert guidance</p>
                     </div>

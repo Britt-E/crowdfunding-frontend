@@ -1,0 +1,11 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Chat Bubbles Icon -->
+    <!-- Left Bubble -->
+    <path d="M15 20H40C45 20 50 25 50 30V40C50 45 45 50 40 50H30L20 60V50H15C10 50 5 45 5 40V30C5 25 10 20 15 20Z" 
+        fill="#48BB78"/>
+    
+    <!-- Right Bubble -->
+    <path d="M65 30H55V40C55 48 48 55 40 55V60C40 65 45 70 50 70H55L65 60V30Z" 
+        fill="#48BB78" 
+        fill-opacity="0.8"/>
+</svg> 
