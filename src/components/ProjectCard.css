@@ -59,3 +59,32 @@
       font-size: 16px; 
   }
 }
+
+/* Add these styles to your existing ProjectCard.css */
+.progress-container {
+    background: var(--background);
+    border-radius: 8px;
+    height: 24px;
+    margin: 15px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.progress-bar {
+    background: var(--accent);
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+}

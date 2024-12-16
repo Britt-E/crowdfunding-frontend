@@ -35,24 +35,41 @@ function ProjectPage() {
             });
     };
 
+    // Calculate total pledged hours with safety check
+    const totalPledged = project.pledges ? 
+        project.pledges.reduce((sum, pledge) => sum + pledge.amount, 0) : 0;
+    // Calculate progress percentage
+    const progress = Math.min((totalPledged / project.goal) * 100, 100);
+    // Calculate hours remaining
+    const hoursRemaining = Math.max(project.goal - totalPledged, 0);
+
     return (
         <div className="project-page">
             <div className="project-header">
                 <h1 className="project-title">{project.title}</h1>
                 <p className="project-description">{project.description}</p>
                 <img src={project.image} className="project-image" alt={project.title} />
-            </div>
-
-            <div className="pledges-section">
+                
+                <div className="progress-section">
                 <h2 className="pledges-title">Pledged Support</h2>
-                <ul className="pledges-list">
-                    {project.pledges.map((pledgeData, key) => (
-                        <li key={key} className="pledge-item">
-                            <span className="pledge-amount">{pledgeData.amount} hours</span>
-                            <span className="pledge-supporter">from {pledgeData.supporter}</span>
-                        </li>
-                    ))}
-                </ul>
+                    <div className="progress-container">
+                        <div className="progress-bar" style={{ width: `${progress}%` }}></div>
+                    </div>
+                    <div className="progress-stats">
+                        <div className="stat">
+                            <span className="stat-value">{totalPledged}</span>
+                            <span className="stat-label">Hours Pledged</span>
+                        </div>
+                        <div className="stat">
+                            <span className="stat-value">{project.goal}</span>
+                            <span className="stat-label">Hours Needed</span>
+                        </div>
+                        <div className="stat">
+                            <span className="stat-value">{hoursRemaining}</span>
+                            <span className="stat-label">Hours to Go</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             {auth.token ? (
