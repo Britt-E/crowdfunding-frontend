@@ -20,6 +20,6 @@ Project Buddy is a platform where skilled individuals volunteer their time to as
     - Create a pledge
 
 ### Demo
-![](video.gif)
+![](demo.gif)
 
 
