@@ -2,7 +2,7 @@ async function updateProject(title, description, goal, image, projectId) {
     const url = `${import.meta.env.VITE_API_URL}/projects/${projectId}/`;
     const token = window.localStorage.getItem("token");
     const response = await fetch(url, {
-      method: "PUT", // We need to tell the server that we are sending JSON data so we set the Content-Type header to application/json
+      method: "PUT", 
       headers: {
         "Content-Type": "application/json",
         Authorization: `Token ${token}`

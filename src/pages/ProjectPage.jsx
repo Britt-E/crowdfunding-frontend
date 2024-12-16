@@ -10,11 +10,8 @@ import { useNavigate } from "react-router-dom";
 import "./ProjectPage.css";
 
 function ProjectPage() {
-    // Here we use a hook that comes for free in react router called `useParams` to get the id from the URL so that we can pass it to our useProject hook.
     const { id } = useParams();
-    // useProject returns three pieces of info, so we need to grab them all here
     const { project, isLoading, error } = useProject(id);  
-    // Get authentication information
     const {auth} = useAuth();
     const navigate = useNavigate();
 
@@ -35,12 +32,9 @@ function ProjectPage() {
             });
     };
 
-    // Calculate total pledged hours with safety check
     const totalPledged = project.pledges ? 
         project.pledges.reduce((sum, pledge) => sum + pledge.amount, 0) : 0;
-    // Calculate progress percentage
     const progress = Math.min((totalPledged / project.goal) * 100, 100);
-    // Calculate hours remaining
     const hoursRemaining = Math.max(project.goal - totalPledged, 0);
 
     return (

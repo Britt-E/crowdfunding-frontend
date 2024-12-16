@@ -33,7 +33,7 @@ function HomePage() {
     };
 
     if (isLoading) {
-        return (<p></p>) // Empty p tag for loading animation
+        return (<p></p>) 
     }
     
     if (error) {

@@ -4,11 +4,8 @@ import "./ProjectCard.css";
 function ProjectCard(props) {
   const { projectData } = props;
   const projectLink = `project/${projectData.id}`;
-
-  // Calculate total pledged hours with safety check
   const totalPledged = projectData.pledges ? 
     projectData.pledges.reduce((sum, pledge) => sum + pledge.amount, 0) : 0;
-  // Calculate progress percentage
   const progress = Math.min((totalPledged / projectData.goal) * 100, 100);
 
   return (
