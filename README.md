@@ -20,6 +20,7 @@ The platform serves a diverse group of individuals and organisations, including 
 - Project Pages
     - Project Description
     - Project Image
+    - Pledged Support Progress Bar
     - Login to create a project or pledge
 - User Profile
     - Update project
