@@ -37,11 +37,14 @@ function ProjectPage() {
     const progress = Math.min((totalPledged / project.goal) * 100, 100);
     const hoursRemaining = Math.max(project.goal - totalPledged, 0);
 
+    const formattedDate = new Date(project.date_created).toLocaleDateString('en-GB');
+
     return (
         <div className="project-page">
             <div className="project-header">
                 <h1 className="project-title">{project.title}</h1>
                 <p className="project-description">{project.description}</p>
+                <p className="project-date">Created on: {formattedDate}</p>
                 <img src={project.image} className="project-image" alt={project.title} />
                 
                 <div className="progress-section">

@@ -12,7 +12,7 @@ function CreateProjectForm() {
         goal: 0,
         image: "",
         is_open: true,
-        date_created: "",
+        date_created: new Date().toISOString().split("T")[0],
     });
         
     const handleChange = (event) => {
@@ -25,17 +25,17 @@ function CreateProjectForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (projectData.title && projectData.description && projectData.goal && projectData.image && projectData.is_open && projectData.date_created) {
+        if (projectData.title && projectData.description && projectData.goal && projectData.image && projectData.is_open) {
             postProject(
                 projectData.title,
                 projectData.description,
                 projectData.goal,
                 projectData.image,
                 projectData.is_open,
-                projectData.date_created   
+                projectData.date_created
             ).then((response) => {
-              const id = response.id
-              navigate(`project/${id}`) 
+                const id = response.id;
+                navigate(`project/${id}`); 
             });
         }
     };

@@ -8,6 +8,8 @@ function ProjectCard(props) {
     projectData.pledges.reduce((sum, pledge) => sum + pledge.amount, 0) : 0;
   const progress = Math.min((totalPledged / projectData.goal) * 100, 100);
 
+  const formattedDate = new Date(projectData.date_created).toLocaleDateString('en-GB');
+
   return (
     <div className="project-card">
       <Link to={projectLink}>
@@ -19,6 +21,7 @@ function ProjectCard(props) {
             {totalPledged} / {projectData.goal} hours pledged
           </div>
         </div>
+        <p className="project-date">Created on: {formattedDate}</p>
       </Link>
     </div>
   );
