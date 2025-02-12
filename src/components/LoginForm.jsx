@@ -6,13 +6,13 @@ import "./Forms.css";
 
 function LoginForm() {
     const navigate = useNavigate();  
-    const {auth, setAuth} = useAuth();
-
+    const { setAuth } = useAuth();
     const [credentials, setCredentials] = useState({
         username: "",
         password: "",
     });
-        
+    const [errorMessage, setErrorMessage] = useState("");
+
     const handleChange = (event) => {
         const { id, value } = event.target;
         setCredentials((prevCredentials) => ({
@@ -24,22 +24,24 @@ function LoginForm() {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (credentials.username && credentials.password) {
-            postLogin(
-                credentials.username,
-                credentials.password            
-            ).then((response) => {
-                window.localStorage.setItem("token", response.token);
-                setAuth({
-                    token: response.token,
+            postLogin(credentials.username, credentials.password)
+                .then((response) => {
+                    window.localStorage.setItem("token", response.token);
+                    setAuth({
+                        token: response.token,
+                    });
+                    navigate("/");
+                })
+                .catch(() => {
+                    setErrorMessage("Incorrect username or password. Please try again.");
                 });
-                navigate("/");
-            });
         }
     };
 
     return (
-        <form className="form-container">
+        <form className="form-container" onSubmit={handleSubmit}>
             <h2 className="form-title">Welcome Back</h2>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
             <div className="form-group">
                 <label className="form-label" htmlFor="username">Username</label>
                 <input
@@ -60,11 +62,11 @@ function LoginForm() {
                     onChange={handleChange}
                 />
             </div>
-            <button type="submit" className="form-button" onClick={handleSubmit}>
+            <button type="submit" className="form-button">
                 Log In
             </button>
             <Link to="/signup" className="form-link">
-                Don't have an account? Sign up here
+                Don&apos;t have an account? Sign up here
             </Link>
         </form>
     );
